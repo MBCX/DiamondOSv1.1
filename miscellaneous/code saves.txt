@@ -1,0 +1,82 @@
+// Aqui guardare mis funciones y otros //
+
+//Interact API
+//Draggable window function API
+interact('.draggable').draggable({
+  listeners: {
+    start(event) {
+      console.log(event.type, event.target)
+    },
+    move(event) {
+      position.x += event.dx
+      position.y += event.dy
+
+      event.target.style.transform =
+        `translate(${position.x}px, ${position.y}px)`
+    },
+  }
+});
+
+interact('.resizable').resizable({
+  edges: {
+    top: '.resize-top',
+    left: '.resize-left',
+    bottom: '.resize-bottom',
+    right: '.resize-right'
+  },
+}).on('resizemove', event => {
+  let {
+    x,
+    y
+  } = event.target.dataset
+
+  x = parseFloat(x) || 0
+  y = parseFloat(y) || 0
+
+  Object.assign(event.target.style, {
+    width: `${event.rect.width}px`,
+    height: `${event.rect.height}px`,
+    transform: `translate(${event.deltaRect.left}px, ${event.deltaRect.top}px)`
+  })
+
+  Object.assign(event.target.dataset, {
+    x,
+    y
+  })
+});
+
+
+
+//Wifi states (PONERLA EN SU FUNCION RESPECTIVAMENTE)
+switch (wifiState) {
+  case wifiStates.CONNECTED:
+    
+    break;
+  
+  case wifiStates.OUT:
+
+    break;
+}
+
+// jQuery keyboard functions
+$(document).keydown(function (e) {
+  if (!map[e.keyCode]) //Shortcut keys
+  {
+    down.push(e.keyCode);
+    if (down[0] == 90) { // Z key
+      startToggle();
+    }
+
+    if ((down[0] == 90 && down[1] == 83) || (down[0] == 90 && down[1] == 81)) { //Z + S key
+      activateForm();
+    }
+
+    if (down[0] == 90 && down[1] == 86) { //Z + V
+      audioVolumeSlicerToggle();
+    }
+  }
+  map[e.keyCode] = true;
+}).keyup(function (e) {
+  map[e.keyCode] = false;
+  down.length = 0;
+});

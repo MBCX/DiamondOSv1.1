@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<![endif]-->
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Diamond OS </title>
+        <meta name="description" content="Diamond OS. The web-based Operating System">
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height, user-scalable=no" />
+
+        <!-- CSS && LINKS -->
+        <link rel="icon" href="imagenes/Logo.png" type="image\x-icon" />
+        <link href="CSS/imports/import.css" rel="stylesheet" type="text/css" />
+        <link href="CSS/keyFrames.css" rel="stylesheet" type="text/css" />
+        <link href="CSS/main.css" rel="stylesheet" type="text/css" />
+        <link href="CSS/supports.css" rel="stylesheet" type="text/css" />
+        <link href="CSS/medias.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!-- [if lt IE 7]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+            <![endif] -->
+        <div class="loading-screen">
+           <section class="loader-section">
+                <div class="loader"></div>
+                <div class="loading-spinner"></div>
+                <h2 class="loading-text"> Diamond OS is loading... </h2>
+                <h2 class="loading-text" style="top: 95%;"> Press F11 for the best experience. </h2>
+           </section>
+        </div>
+        
+        <main class="content-main disabled main--image" id="blur">
+            <!-- General User View -->
+            <div class="general-user-view">
+                <div class="user animation-MoveUp anim-delay-13100">
+                    <h3 class="user-view-current__title hint--top" data-hint="This is the OS Administrator">
+                        Administrator 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+                            width="18px" height="18px">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path>
+                        </svg>
+                    </h3>
+                    <img class="user-view-current__image" alt="Current User Image" src="imagenes/Users/UserAdmin.png">
+                    <h4 class="user-view-current__name"> {SYSTEM} </h4>
+                    <p class="user-view-current__desc">
+                        The Master.
+                    </p>
+					<button class="pin-input-field" aria-label="Pin Input Button">
+						<div class="pin-entered-numbers-wrapper">
+							<div class="entered-numbers"></div>
+						</div>
+						<div class="pin-input-field-backspace">
+							<div class="hover-circle" id="backspace-icon" onclick="backspacePin();">
+								<i class="fa fa-times pin-icon"></i>
+							</div>
+						</div>
+						<span class="pin-input-text">
+							Enter your pin
+						</span>
+					</button>
+                </div>
+                <div class="user animation-MoveUp anim-delay-13200">
+                    <h3 class="user-view-current__title"> User </h3>
+                    <img class="user-view-current__image" alt="Current User Image" src="imagenes/Users/UserDaniel.png">
+                    <h4 class="user-view-current__name"> Daniel </h4>
+                    <p class="user-view-current__desc">
+                        User Description
+                    </p>
+                    <div class="btn-group">
+                        <a class="btn" href="pages/userDaniel.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                                fill="#FFFFFF" width="24px" height="24px" class="btn-group-icon">
+                                <g>
+                                    <rect fill="none" height="24" width="24"></rect>
+                                </g>
+                                <g>
+                                    <path
+                                        d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z">
+                                    </path>
+                                </g>
+                            </svg>
+                            <span class="btn-text"> Log In </span>
+                        </a>
+                    </div>
+                </div>
+				<div class="user animation-MoveUp anim-delay-13300">
+					<h3 class="user-view-current__title"> Add User </h3>
+					<a href="pages/OOBE.html">
+						<img class="user-view-current__image" alt="Add user" src="imagenes/Add/baseline_add_white_48dp.png" title="Add a new user to the OS">
+					</a>
+				</div>
+            </div>
+            <div class="details">
+                <div class="details-top">
+                    <h2 class="details-top__text animation-MoveDown anim-delay-12700" style="color: #FFFFFF;"> Welcome Back! </h2>
+                    <h3 class="details-top__text animation-MoveDown-second anim-delay-12800" style="color: #FFFFFF;"> Select your user to
+                        continue. </h3>
+                </div>
+                <div class="details-bottom-left animation-MoveRightIn anim-delay-12900">
+                    <h3 style="width: 123px; width: -webkit-fill-available; font-size: 0.475em; margin-bottom: 10px; color: #FFFFFF;"> Current Time
+                        and Date. </h3>
+                    <div class="time" style="color: #FFFFFF;">
+                        <span class="hour"> 00 </span>
+                    </div>
+                    <span class="date" style="color: #FFFFFF;"> 00 </span>
+                </div>
+                <div class="details-bottom-right animation-MoveLeftIn anim-delay-13000" style="opacity: 0; color: #FFFFFF;">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#FFFFFF" width="32px" height="32px">
+                            <path
+                                d="M464 0H112c-4 0-7.8 2-10 5.4L2 152.6c-2.9 4.4-2.6 10.2.7 14.2l276 
+                                        340.8c4.8 5.9 13.8 5.9 18.6 0l276-340.8c3.3-4.1 3.6-9.8.7-14.2L474.1 5.4C471.8 2 468.1 0 464 0zm-19.3 48l63.3 96h-68.4l-51.7-96h56.8zm-202.1 0h90.7l51.7 
+                                        96H191l51.6-96zm-111.3 0h56.8l-51.7 96H68l63.3-96zm-43 144h51.4L208 352 88.3 192zm102.9 0h193.6L288 435.3 191.2 192zM368 352l68.2-160h51.4L368 352z">
+                            </path>
+                        </svg>
+                        Diamond OS
+                    </h3>
+                </div>
+            </div>
+            <div class="user-view-mobile">
+                <div class="user-mobile active">
+                    <img class="user__mobile" src="imagenes/Users/UserAdmin.png">
+					<button class="pin-input-field" aria-label="Pin Input Button">
+						<div class="pin-entered-numbers-wrapper">
+							<div class="entered-numbers"></div>
+						</div>
+						<div class="pin-input-field-backspace">
+							<div class="hover-circle" id="backspace-icon" onclick="backspacePin();">
+								<i class="fa fa-times pin-icon"></i>
+							</div>
+						</div>
+						<span class="pin-input-text">
+							Enter your pin
+						</span>
+					</button>                   
+                </div>
+                <div class="user-mobile next" onclick="userDaniel.html">
+                    <img class="user__mobile" src="imagenes/Users/UserDaniel.png">
+                    <div class="btn-group">
+                        <a class="btn" href="pages/userDaniel.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                                fill="#FFFFFF" width="24px" height="24px" class="btn-group-icon">
+                                <g>
+                                    <rect fill="none" height="24" width="24"></rect>
+                                </g>
+                                <g>
+                                    <path
+                                        d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z">
+                                    </path>
+                                </g>
+                            </svg>
+                            <span class="btn-text"> Log In </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="user-mobile">
+                    <img class="user__mobile" src="imagenes/Users/UserJuan.png">
+                </div>
+                <div class="user-mobile prev">					
+                    <a href="pages/OOBE.html">
+                        <img class="user__mobile" alt="Add user" src="imagenes/Add/baseline_add_white_48dp.png" title="Add a new user to the OS">
+                    </a>
+                </a>
+                </div>
+                <div class="button-carousel-container">
+                    <div class="carousel-btn" onclick="gotoPrev();">
+                        <i class="fas fa-angle-left"></i>
+                    </div>
+                    <div class="carousel-btn" onclick="gotoNext();">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Eng General User View -->
+
+            <!-- Empty Taskbar (for JS issues) -->
+            <div class="taskbar hide">
+                <!-- Right Taskbar (LOGO && OTHERS)-->
+                <div class="taskbar__right hint--top-left hint--bounce" data-hint="Start">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#FFFFFF" class="taskbar__logo"
+                        onclick="startToggle();" onkeydown="startToggle();">
+                        <path
+                            d="M464 0H112c-4 0-7.8 2-10 5.4L2 152.6c-2.9 4.4-2.6 10.2.7 14.2l276 
+                                340.8c4.8 5.9 13.8 5.9 18.6 0l276-340.8c3.3-4.1 3.6-9.8.7-14.2L474.1 5.4C471.8 2 468.1 0 464 0zm-19.3 48l63.3 96h-68.4l-51.7-96h56.8zm-202.1 0h90.7l51.7 
+                                96H191l51.6-96zm-111.3 0h56.8l-51.7 96H68l63.3-96zm-43 144h51.4L208 352 88.3 192zm102.9 0h193.6L288 435.3 191.2 192zM368 352l68.2-160h51.4L368 352z">
+                        </path>
+                    </svg>
+                </div>
+                <!-- End right Taskbar -->
+
+                <!-- Middle taskbar -->
+                <div class="taskbar__middle">
+                    <ul class="taskbar__middle-list">
+                        <div class="marker"></div>
+                        <li class="middle-list__item hint--top hint--bounce" data-hint="File Viewer">
+                            <span class="app-link" onclick="createAppScreen(); this.classList.toggle('active');">
+                                <i class="fas fa-folder"></i>
+                            </span>
+                            <span class="app-link-indicator"></span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End middle taskbar -->
+
+                <!-- Left taskbar (SEARCH, DATE && OTHERS)-->
+                <div class="taskbar__left">
+                    <!-- Search Button -->
+                    <button aria-label="Search" class="taskbar__left-button hint--top hint--bounce" data-hint="Search...."
+                        onclick="activateForm(true);">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 
+                                        0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                        </svg>
+                    </button>
+                    <!-- Volume control -->
+                    <button aria-label="Volume Control" class="taskbar__left-button hint--top hint--bounce"
+                        data-hint="Audio Control" onclick="audioVolumeSlicerToggle();">
+                        <!-- Full volume SVG-->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" height="24px"
+                            class="audioFull">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z">
+                            </path>
+                        </svg>
+
+                        <!-- Volume down SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" height="24px"
+                            class="audioStandard">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z">
+                            </path>
+                        </svg>
+
+                        <!-- Volume Low -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" height="24px"
+                            class="audioLow">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M7 9v6h4l5 5V4l-5 5H7z"></path>
+                        </svg>
+
+                        <!-- Volume OFF -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" height="24px"
+                            class="audioOFF">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 
+                                        14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 
+                                        1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Batery indicator -->
+                    <button aria-label="Battery Indicator" class="taskbar__left-button hint--top hint--bounce"
+                        data-hint="Battery State" onclick="batteryIndicatorToggle();">
+                        <!-- Full battery SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px"
+                            height="24px" class="batteryFull">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z">
+                            </path>
+                        </svg>
+
+                        <!-- Charging battery SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px"
+                            height="24px" class="batteryCharging">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 
+                                    1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM11 20v-5.5H9L13 7v5.5h2L11 20z"></path>
+                        </svg>
+
+                        <!-- Battery unknown SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px"
+                            height="24px" class="batteryUnknown">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 
+                                        15.67 4zm-2.72 13.95h-1.9v-1.9h1.9v1.9zm1.35-5.26s-.38.42-.67.71c-.48.48-.83 1.15-.83 1.6h-1.6c0-.83.46-1.52.93-2l.93-.94c.27-.27.44-.65.44-1.06 
+                                        0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5H9c0-1.66 1.34-3 3-3s3 1.34 3 3c0 .66-.27 1.26-.7 1.69z">
+                            </path>
+                        </svg>
+
+                        <!-- Battery alert SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px"
+                            height="24px" class="batteryAlert">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 
+                                        4.6 16.4 4 15.67 4zM13 18h-2v-2h2v2zm0-4h-2V9h2v5z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Close search button -->
+                    <button aria-label="Close Search" class="taskbar__left-button-close" onclick="activateForm(false);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px"
+                            height="24px">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 
+                                    6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Notification SVG -->
+                    <button aria-label="Notifications" class="taskbar__left-button hint--top hint--bounce"
+                        data-hint="Notifications" onclick="showMessage();">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px"
+                            height="24px">
+                            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 
+                                        7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
+                        </svg>
+                    </button>
+                    <div class="notification-border"></div>
+
+                    <!-- Time and date -->
+                    <div class="taskbar__left-date hint--top hint--bounce" data-hint="Time and Date">
+                        <div class="time">
+                            <span class="hour"> 00 </span>
+                        </div>
+                        <span class="date"> 00 </span>
+                    </div>
+
+                    <!-- Search form -->
+                    <form action="index.html" method="get" class="search-form-taskbar">
+                        <div class="search-form">
+                            <form class="form-search">
+                                <input type="text" name="q" title="Search your apps" placeholder="Type here to search"
+                                    class="search-box" aria-label="Type your search and press enter." autocomplete="off">
+                                <!--<span class="input-text"> Type here to search </span>-->
+                            </form>
+                        </div>
+                    </form>
+                </div>
+                <!-- End left taskbar -->
+
+                <!-- Volume ranger -->
+                <div class="volume-range">
+                    <span class="volume-range__num"> 0 </span>
+                    <input type="range" value="25" min="0" max="100" class="slider-range">
+                </div>
+            </div>
+            <!-- End Taskbar -->
+
+            <!-- Right click menu -->
+            <div class="right-click-menu">
+                <div class="right-click-menu__item">
+                    <i class="fas fa-cut"></i> ???? ????
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-clone"></i> ???? ????
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-paste"></i> ???? ????
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-trash"></i> ???? ????
+                </div>
+                <hr>
+                <div class="right-click-menu__item">
+                    <i class="fas fa-sync"></i> ???? ????
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-times"></i> ???? ????
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="far fa-eye-slash" id="icon_taskbar"></i>
+                    <span class="taskbarHide-text"> ???? ???? </span>
+                </div>
+            </div>
+        </main>
+        
+        <!-- SOUNDS -->
+        <audio id="startUpSound" preload="none" muted="muted">
+            <source src="Sounds/StartUp/Startup.mp3" type="audio/mpeg">
+        </audio>
+        
+        <!-- JS -->
+        <script defer="defer" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- jQuery -->
+        <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+        <script defer="defer" src="JS/loader.js"></script>
+        <script src="JS/notyf.min.js"></script>
+        <script defer="defer" src="JS/util.js"></script>        
+        <script defer="defer" async="async" src="JS/main.js"></script>
+        <script defer="defer" src="JS/localStorage.js"></script>
+        <script defer="defer" src="JS/userMobileSwipe.js"></script>        
+		<script defer="defer" src="JS/pinControl.js"></script>
+        <noscript>
+            This Operating System requires JavaScript to work.
+        </noscript>
+    </body>
+</html>

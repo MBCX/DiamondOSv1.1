@@ -1,0 +1,114 @@
+/* blur FX */
+@supports ((-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px)))
+{
+    .taskbar
+    {
+        -webkit-backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+        backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+    }
+	
+    .startMenu
+    {
+        -webkit-backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+        backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+    }
+
+    .right-click-menu
+    {
+        -webkit-backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+        backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+    }
+
+    .message--info,
+    .message--success,
+    .message--warning,
+    .message--danger
+    {
+        -webkit-backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+        backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+    }
+
+	[id$="header"][class=""]
+	{
+		background-color: transparent;
+        -webkit-backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+        backdrop-filter: blur(5px) saturate(300%) brightness(70%);
+	}
+    
+    .popup
+    {
+        -webkit-backdrop-filter: blur(1px) saturate(100%) brightness(50%);
+        backdrop-filter: blur(1px) saturate(100%) brightness(50%);
+    }
+
+    .user-view-current,
+    .general-user-view,
+    .user-view-mobile
+    {
+        -webkit-backdrop-filter: blur(3px) saturate(200%) brightness(70%);
+        backdrop-filter: blur(3px) saturate(200%) brightness(70%);
+    }
+	
+	.virtual-desktop-button:hover,
+	.virtual-desktop-button:focus
+	{
+        -webkit-backdrop-filter: blur(3px) saturate(200%) brightness(70%);
+        backdrop-filter: blur(3px) saturate(200%) brightness(70%);
+    }
+    
+    .user__mobile:last-child
+    {
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+    }
+}
+
+/* Taskbar blur fallback */
+@supports not ((-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px)))
+{
+    .taskbar
+    {
+        background: #424242;
+    }
+
+    .startMenu
+    {
+        background: #222222;
+    }
+
+    .right-click-menu 
+    {
+        background: #1B1A1A;
+    }
+
+    .screen 
+    {
+        background: #FFFFFF;
+    }
+
+    .menubar
+    {
+        background: #252B2D;
+    }
+    
+    .popup
+    {
+        background: #323232;
+    }
+
+    .user-view-current,
+    .general-user-view
+    {
+        background: rgba(66, 66, 66, 0.5);
+    }
+	
+	.virtual-desktop-button
+	{
+		background: rgba(255, 255, 255, 0.4);
+    }
+    
+    .user__mobile:last-child
+    {
+        background-color: #424242;
+    }
+}

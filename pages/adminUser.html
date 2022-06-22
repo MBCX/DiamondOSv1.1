@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <!--<![endif]-->
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Diamond OS </title>
+        <meta name="description" content="Diamond OS. The web-based Operating System">
+		<!-- <meta name="keywords"" content="operating system, javascript, css, "> -->
+        <meta name="viewport" content="minimum-scale=1.0, initial-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height, user-scalable=no">
+
+        <!-- CSS && LINKS -->
+        <link rel="icon" href="../imagenes/Logo.png" type="image\x-icon" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="../CSS/imports/import.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/utils/notyf.min.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/utils/hint.min.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/utils/animations.utils.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/utils/window-engine.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/utils/repl.tooltip.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/keyFrames.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/main.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/supports.css" rel="stylesheet" type="text/css" />
+        <link href="../CSS/medias.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <!-- [if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif] -->
+
+        <!-- Virtual Desktop view-->
+        <div class="virtual-desktop-view">
+            <!-- Right Button -->
+            <div class="virtual-desktop-remove" title="Close Virtual Desktop View">
+                <button type="button" class="virtual-desktop-button" onclick="virtualDesktopView(false);" aria-label="Remove a Virtual Desktop">
+					<div class="icon-container">
+						<svg width="45px" height="45px" viewBox="0 0 24 24" stroke="#FFFFFF" stroke-width="1" fill="#FFFFFF" style="vertical-align: middle;">
+							<path d="M18 6L6 18" stroke-width="2" stroke-linejoin="round"></path>
+							<path d="M6 6L18 18" stroke-width="2" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+                </button>
+            </div>
+
+            <!-- Left Button -->
+            <div class="virtual-desktop-add" title="Add a Virtual Desktop">
+				<button type="button" role="button" class="virtual-desktop-button" aria-label="Add a Virtual Desktop" onclick="createVirtualDesktop();">
+					<div class="icon-container">
+						<svg width="32px" height="32px" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" fill="currentColor" style="vertical-align: middle;">
+							<path d="M13 4V3H11V4H13ZM11 20V21H13V20H11ZM11 4V20H13V4H11Z"></path>
+							<path d="M4 11H3V13H4V11ZM20 13H21V11H20V13ZM4 13H20V11H4V13Z"></path>
+						</svg>
+					</div>
+					<span class="jsx-3450113745 content"></span>
+				</button>
+            </div>
+
+            <!-- Desktop app amount -->
+            <div class="virtual-desktop-apps">
+                <div class="virtual-desktop-text">
+                    <span> No Active Apps </span>
+                </div>
+
+                <div class="virtual-desktop-app">
+                    <div class="virtual-desktop-app__title">
+
+                    </div>
+                    <div class="virtual-desktop-app__app">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop views -->
+			<div class="desktop-view-amount" style="display: flex;"> <!-- This DIV is for the JS -->
+				<div class="desktop-view">
+					<button class="desktop-view-button" onclick="changeBG(document.querySelector('.desktop-view-button img').getAttribute('src'));" aria-label="Enter This Virtual Desktop">
+						<div class="input-container" style="position: relative;">
+							<input type="text" name="desktop-title" class="virtual-desktop-title" placeholder=" " aria-label="Name your Virtual Desktop">
+							<label for="desktop-title" class="desktop-view__label"> Desktop 1 </label>
+						</div>
+						<img src="../imagenes/Wallpapers/Wallpaper8.png" class="virtual-desktop-image" alt="Virtual Desktop Image">
+					</button>
+					<button class="desktop-view-button-close" onclick="removeVirtualDesktop();" aria-label="Remove This Virtual Desktop">
+						<div class="pulse">
+							<div class="circle"></div>
+						</div>
+						<img src="../imagenes/close.PNG" alt="Close Virtual Desktop View">
+					</button>
+				</div>
+			</div>
+        </div>
+
+       <main class="content-main main--image image-changer" id="blur">
+            <!-- Taskbar Start Menu -->
+            <div class="startMenu">
+                <div class="startMenu__left">
+                    <ul class="menu-left-nav">
+                        <!-- Hamburger Start -->
+                        <li class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="18px"
+                                height="18px" class="nav-item__logo">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                            </svg>
+                            <a href="#" class="nav-item-text" title="Start Menu">
+                                <span class="item-text__text"> Start </span>
+                            </a>
+                        </li>
+
+                        <!-- User -->
+                        <li class="nav-item">
+                            <img class="profile-image" src="../imagenes/Users/UserAdmin.png" alt="User Image"> <!-- La imagen del usuario -->
+                            <a href="#" class="nav-item-text" onclick="userView();" title="Current Active User.">
+                                <span class="item-text__text"> {SYSTEM} </span>
+                            </a>
+                        </li>
+
+                        <!-- Documents -->
+                        <li class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"
+                                class="nav-item__logo">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z">
+                                </path>
+                            </svg>
+                            <a href="#" class="nav-item-text" onclick="" title="See and go trough your documents.">
+                                <span class="item-text__text"> Documents </span>
+                            </a>
+                        </li>
+
+                        <!-- Pictures -->
+                        <li class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px"
+                                class="nav-item__logo">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z">
+                                </path>
+                            </svg>
+                            <a href="#" class="nav-item-text" onclick="" title="See all your images here.">
+                                <span class="item-text__text"> Pictures </span>
+                            </a>
+                        </li>
+
+                        <!-- Settings -->
+                        <li class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                                fill="white" width="18px" height="18px" class="nav-item__logo">
+                                <g>
+                                    <path d="M0,0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                        d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,
+                                            0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,
+                                            0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 
+                                            c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 
+                                            c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,
+                                            0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z">
+                                    </path>
+                                </g>
+                            </svg>
+                            <a href="#" class="nav-item-text" onclick="" title="Go to the OS's Settings.">
+                                <span class="item-text__text"> Settings </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="startMenu__middle">
+                    <div class="recently-added">
+                        <span class="added-text"> Recently Added Apps </span>
+                        <ul class="app-list">
+                            <li class="app-item">
+                                <i class="fas fa-shopping-bag"></i>
+                                <a href="#" class="app-item__text" onclick=""> App Store </a>
+                            </li>
+                            <li class="app-item">
+                                <i class="fab fa-chrome"></i>
+                                <a href="#" class="app-item__text" onclick=""> Google Chrome </a>
+                            </li>
+                            <li class="app-item">
+                                <i class="fas fa-image"></i>
+                                <a href="#" class="app-item__text" onclick=""> Image Viewer </a>
+                            </li>
+                            <li class="app-item">
+                                <i class="fas fa-terminal"></i>
+                                <a href="#" class="app-item__text" onclick=""> Terminal </a>
+                            </li>
+                            <li class="app-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="#" class="app-item__text" onclick=""> Mail </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="numbers">
+                        <span class="added-text"> # </span>
+                    </div>
+                    <div class="alphabetical">
+                        <span class="added-text"> A </span>
+                        <ul class="app-list">
+                            <li class="app-item">
+                                <i class="fas fa-shopping-bag"></i>
+                                <a href="#" class="app-item__text" onclick=""> App Store </a>
+                            </li>
+                        </ul>
+                        <span class="added-text"> M </span>
+                        <ul class="app-list">
+                            <li class="app-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="#" class="app-item__text" onclick=""> Mail </a>
+                            </li>
+                        </ul>
+
+                        <span class="added-text"> G </span>
+                        <ul class="app-list">
+                            <li class="app-item">
+                                <i class="fab fa-chrome"></i>
+                                <a href="#" class="app-item__text" onclick=""> Google Chrome </a>
+                            </li>
+                        </ul>
+                        <span class="added-text"> I </span>
+                        <ul class="app-list">
+                            <li class="app-item">
+                                <i class="fas fa-image"></i>
+                                <a href="#" class="app-item__text" onclick=""> Image Viewer </a>
+                            </li>
+                        </ul>
+                        <span class="added-text"> T </span>
+                        <ul class="app-list">
+                            <li class="app-item">
+                                <i class="fas fa-terminal"></i>
+                                <a href="#" class="app-item__text" onclick=""> Terminal </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="startMenu__right"></div>
+            </div>
+
+            <!-- Taskbar -->
+            <div class="taskbar">
+                <!-- Right Taskbar (LOGO && OTHERS)-->
+                <div class="taskbar__right">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#FFFFFF" class="taskbar-right__icon" onclick="startToggle();" title="Start">
+                        <path
+                            d="M464 0H112c-4 0-7.8 2-10 5.4L2 152.6c-2.9 4.4-2.6 10.2.7 14.2l276 
+                            340.8c4.8 5.9 13.8 5.9 18.6 0l276-340.8c3.3-4.1 3.6-9.8.7-14.2L474.1 5.4C471.8 2 468.1 0 464 0zm-19.3 48l63.3 96h-68.4l-51.7-96h56.8zm-202.1 0h90.7l51.7 
+                            96H191l51.6-96zm-111.3 0h56.8l-51.7 96H68l63.3-96zm-43 144h51.4L208 352 88.3 192zm102.9 0h193.6L288 435.3 191.2 192zM368 352l68.2-160h51.4L368 352z">
+                        </path>
+                    </svg>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="18px" height="18px" class="taskbar-right__icon" onclick="virtualDesktopView(true);" title="Virtual Desktop View">
+						<path d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M7 19h10V4H7v15zm-5-2h4V6H2v11zM18 6v11h4V6h-4z"></path>
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="18px" height="18px" class="taskbar-right__icon" title="Timeline view">
+						<path d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="18px" height="18px" class="taskbar-right__icon mobile-notification" 
+                        onclick="document.querySelector('.notification-panel').classList.add('show-panel'); document.querySelector('#blur').classList.add('active');">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 14H6v-2h2v2zm0-3H6V9h2v2zm0-3H6V6h2v2zm7 6h-5v-2h5v2zm3-3h-8V9h8v2zm0-3h-8V6h8v2z"></path>
+                    </svg>
+                </div>
+                <!-- End right Taskbar -->
+
+                <!-- Middle taskbar -->
+                <div class="taskbar__middle">
+                    <div class="taskbar__middle-list">
+                        <button role="tooltip" class="middle-list__item" aria-label="File Viewer" data-microtip-position="top">
+                            <span class="app-link" onclick=" this.classList.toggle('active');"> 
+                                <i class="fas fa-folder"></i> 
+                            </span>
+                            <span class="app-link-indicator"></span>
+                        </button>
+                        <button role="tooltip" class="middle-list__item" aria-label="App Store" data-microtip-position="top">
+                            <span class="app-link" onclick=" this.classList.toggle('active');"> 
+                                <div class="notification-indicator">
+                                    <span class="notification-indicator__number"> 3 </span>
+                                </div>
+                                <i class="fas fa-shopping-bag"></i> 
+                            </span>
+                            <span class="app-link-indicator"></span>
+                        </button>
+                        <button role="tooltip" class="middle-list__item" aria-label="Google Chrome Browser" data-microtip-position="top">
+                            <span class="app-link" onclick=" this.classList.toggle('active');"> 
+                                <i class="fab fa-chrome"></i> 
+                            </span>
+                            <span class="app-link-indicator"></span>
+                        </button>
+                        <button role="tooltip" class="middle-list__item" aria-label="Image Viewer" data-microtip-position="top">
+                            <span class="app-link" onclick=" this.classList.toggle('active');">
+                                <i class="fas fa-image"></i> 
+                            </span>
+                            <span class="app-link-indicator"></span>
+                        </button>
+                        <button role="tooltip" class="middle-list__item" aria-label="Terminal" id="button2" data-microtip-position="top">
+                            <span class="app-link" onclick=" this.classList.toggle('active');"> 
+                                <i class="fas fa-terminal"></i> 
+                            </span>
+                            <span class="app-link-indicator"></span>
+                        </button>                    
+                        <button role="tooltip" class="middle-list__item" aria-label="Mail" data-microtip-position="top">
+                            <span class="app-link" onclick=" this.classList.toggle('active');">
+                                <div class="notification-indicator">
+                                    <span class="notification-indicator__number"> 2 </span>
+                                </div>
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="app-link-indicator"></span>
+                        </button>
+                    </div>
+                </div>
+                <!-- End middle taskbar -->
+
+                <!-- Left taskbar (SEARCH, DATE && OTHERS)-->
+                <div class="taskbar__left">
+					<div class="taskbar__left-elements">
+						<!-- Search Button -->
+						<button role="tooltip" aria-label="Search" class="taskbar__left-button"
+							onclick="activateForm(true); document.querySelector('.taskbar__left-button-more-icons').classList.add('hide');" data-microtip-position="top">
+							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="20px" height="20px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+							<g>
+								<g>
+									<g>
+										<path fill="#FFFFFF" d="M9,18c-5,0-9-4-9-9s4-9,9-9s9,4,9,9S14,18,9,18z M9,2C5.1,2,2,5.1,2,9s3.1,7,7,7s7-3.1,7-7S12.9,2,9,2z"
+											/>
+									</g>
+								</g>
+								<g>
+									<g>
+										<path fill="#FFFFFF" d="M23,24c-0.3,0-0.5-0.1-0.7-0.3l-8-8c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l8,8c0.4,0.4,0.4,1,0,1.4
+											C23.5,23.9,23.3,24,23,24z"/>
+									</g>
+								</g>
+							</g>
+							</svg>
+						</button>
+						
+						<!-- Volume control -->
+						<button role="tooltip" aria-label="Volume Control" class="taskbar__left-button" onclick="audioVolumeSlicerToggle();" data-microtip-position="top">
+							<!-- Full volume SVG-->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" height="24px"
+								class="audioFull">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path
+									d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z">
+								</path>
+							</svg>
+
+							<!-- Volume down SVG -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" height="24px"
+								class="audioStandard">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z">
+								</path>
+							</svg>
+
+							<!-- Volume Low -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" height="24px"
+								class="audioLow">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M7 9v6h4l5 5V4l-5 5H7z"></path>
+							</svg>
+
+							<!-- Volume OFF -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" height="24px"
+								class="audioOFF">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path
+									d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 
+										14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 
+										1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z">
+								</path>
+							</svg>
+						</button>
+
+						<!-- Battery indicator -->
+						<button role="tooltip" aria-label="Battery Indicator" class="taskbar__left-button" onclick="batteryIndicatorToggle();" data-microtip-position="top">
+							<!-- Full battery SVG -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px" height="24px"
+								class="batteryFull">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path
+									d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z">
+								</path>
+							</svg>
+
+							<!-- Charging battery SVG -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px" height="24px"
+								class="batteryCharging">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 
+									1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM11 20v-5.5H9L13 7v5.5h2L11 20z"></path>
+							</svg>
+
+							<!-- Battery unknown SVG -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px" height="24px"
+								class="batteryUnknown">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path
+									d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 
+										15.67 4zm-2.72 13.95h-1.9v-1.9h1.9v1.9zm1.35-5.26s-.38.42-.67.71c-.48.48-.83 1.15-.83 1.6h-1.6c0-.83.46-1.52.93-2l.93-.94c.27-.27.44-.65.44-1.06 
+										0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5H9c0-1.66 1.34-3 3-3s3 1.34 3 3c0 .66-.27 1.26-.7 1.69z">
+								</path>
+							</svg>
+
+							<!-- Battery alert SVG -->
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px" height="24px"
+								class="batteryAlert">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 
+										4.6 16.4 4 15.67 4zM13 18h-2v-2h2v2zm0-4h-2V9h2v5z"></path>
+							</svg>
+						</button>
+
+						<!-- Close search button -->
+						<button aria-label="Close Search" class="taskbar__left-button-close" onclick="activateForm(false); document.querySelector('.taskbar__left-button-more-icons').classList.remove('hide');">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px" height="24px">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 
+									6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+							</svg>
+						</button>
+
+						<!-- Notification SVG -->
+						<button role="tooltip" aria-label="Notifications" class="taskbar__left-button" data-microtip-position="top" 
+							onclick="notyf.open({type: 'warning', message: 'This is a notification message'})">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="24px" height="24px">
+								<path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 
+										7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
+							</svg>
+						</button>
+						
+						<!-- Weather SVG -->
+						<button role="tooltip" aria-label="Weather" class="taskbar__left-button" onclick="showWeather();" data-microtip-position="top">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.61 5.64 5.36 8.04 2.35 8.36 0 10.9 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4h2c0-2.76-1.86-5.08-4.4-5.78C8.61 6.88 10.2 6 12 6c3.03 0 5.5 2.47 5.5 5.5v.5H19c1.65 0 3 1.35 3 3s-1.35 3-3 3z"></path>
+							</svg>	
+						</button>
+
+						<!-- More icons container -->
+						<div class="taskbar__left-button-more-icons">
+							<button role="tooltip" aria-label="Show Hidden Icons" class="more-icon-btn" onclick="systemTrayActivate();" data-microtip-position="top">
+								<span class="system-tray-arrow"></span>
+							</button>
+							<div class="icons-system-tray">
+								<div class="icon" title="Bluetooth">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="18px" height="18px">
+										<path d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M17.71 7.71L12 2h-1v7.59L6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 11 14.41V22h1l5.71-5.71-4.3-4.29 4.3-4.29zM13 5.83l1.88 1.88L13 9.59V5.83zm1.88 10.46L13 18.17v-3.76l1.88 1.88z"></path>
+									</svg>
+								</div>
+								<div class="icon" title="Internet Access">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="18px" height="18px" class="wifi-connected">
+										<path d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px" class="wifi-disabled">
+										<path d="M24 .01c0-.01 0-.01 0 0L0 0v24h24V.01zM0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none"></path>
+										<path d="M22.99 9C19.15 5.16 13.8 3.76 8.84 4.78l2.52 2.52c3.47-.17 6.99 1.05 9.63 3.7l2-2zm-4 4c-1.29-1.29-2.84-2.13-4.49-2.56l3.53 3.53.96-.97zM2 3.05L5.07 6.1C3.6 6.82 2.22 7.78 1 9l1.99 2c1.24-1.24 2.67-2.16 4.2-2.77l2.24 2.24C7.81 10.89 6.27 11.73 5 13v.01L6.99 15c1.36-1.36 3.14-2.04 4.92-2.06L18.98 20l1.27-1.26L3.29 1.79 2 3.05zM9 17l3 3 3-3c-1.65-1.66-4.34-1.66-6 0z"></path>
+									</svg>
+								</div>
+								<div class="icon" title="GPS OFF">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="18px" height="18px">
+										<path d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M20.94 11c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06c-1.13.12-2.19.46-3.16.97l1.5 1.5C10.16 5.19 11.06 5 12 5c3.87 0 7 3.13 7 7 0 .94-.19 1.84-.52 2.65l1.5 1.5c.5-.96.84-2.02.97-3.15H23v-2h-2.06zM3 4.27l2.04 2.04C3.97 7.62 3.25 9.23 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c1.77-.2 3.38-.91 4.69-1.98L19.73 21 21 19.73 4.27 3 3 4.27zm13.27 13.27C15.09 18.45 13.61 19 12 19c-3.87 0-7-3.13-7-7 0-1.61.55-3.09 1.46-4.27l9.81 9.81z"></path>
+									</svg>
+								</div>
+								<div class="icon" title="Open the Music Program" onclick="notificationControl(notificationStates.OPEN);">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="18px" height="18px">
+										<path d="M0 0h24v24H0z" fill="none"></path>
+										<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"></path>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="notification-border"></div>
+
+						<!-- Time and date -->
+						<button role="tooltip" class="taskbar__left-date" aria-label="Time and Date" data-microtip-position="top">
+							<div class="time">
+								<span class="hour"> 00 </span>
+							</div>
+							<span class="date"> 00 </span>
+						</button>
+						<!-- jQuery DATE -->
+						<div class='datepicker'> 
+							<div class="datepicker-header"></div>
+						</div>
+						<!-- Notification center -->
+						<button role="tooltip" class="taskbar__left-notification-button" data-microtip-position="top-left" 
+						onclick="document.querySelector('.notification-panel').classList.add('show-panel'); document.querySelector('#blur').classList.add('active');" aria-label="Notifications">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="32px" height="32px">
+								<path d="M0 0h24v24H0z" fill="none"></path>
+								<path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 14H6v-2h2v2zm0-3H6V9h2v2zm0-3H6V6h2v2zm7 6h-5v-2h5v2zm3-3h-8V9h8v2zm0-3h-8V6h8v2z"></path>
+							</svg>
+						</button>
+
+						<!-- Search form -->
+						<form action="index.html" method="get" class="search-form-taskbar">
+							<div class="search-form">
+								<input type="text" name="query" title="Search your apps" class="search-box" placeholder=" " aria-label="Type your search and press enter." autocomplete="off">
+								<label for="query" class="label-search-box"> 
+									Search for your apps 
+									<div class="dots-loader">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</label>
+								<div class="input-underline"></div>
+							</div>
+						</form>
+					</div>
+                </div>
+                <!-- End left taskbar -->
+
+                <!-- Volume ranger -->
+                <div class="volume-range">
+                    <span class="volume-range__num"> 0 </span>
+                    <input type="range" value="25" min="0" max="100" step="1" oninput="music.volume = this.value / 100; notificationSound.volume = this.value / 100;" class="slider-range" aria-label="Volume Slider">
+                </div>
+            </div>
+
+            <!-- Right click menu -->
+            <div class="right-click-menu">
+                <div class="right-click-menu__item">
+                    <i class="fas fa-cut"></i> Cut
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-clone"></i> Copy
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-paste"></i> Paste
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-trash"></i> Delete
+                </div>
+
+                <hr>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-sync"></i> Reload
+                </div>
+
+                <div class="right-click-menu__item">
+                    <i class="fas fa-times"></i> Exit
+                </div>
+
+                <div class="right-click-menu__item" onclick="taskbarHide();">
+                    <i class="far fa-eye-slash" id="icon_taskbar"></i>
+                    <span class="taskbarHide-text"> Auto Hide taskbar </span>
+                </div>
+            </div>
+            <!-- Desktop -->
+            <div class="desktop">
+                <ul class="desktop__list">
+                    <li class="desktop__list-item">
+                        <div class="app-desc" title="Double click this app to open it." ondblclick="">
+                            <i class="fas fa-folder icon-desktop"></i>
+                            <a class="app-title"> File Explorer </a>
+                        </div>
+                    </li>                
+                    <li class="desktop__list-item">
+                        <div class="app-desc" title="Double click this app to open it." ondblclick="">
+                            <i class="fas fa-shopping-bag icon-desktop"></i>
+                            <a class="app-title"> App Store </a>
+                        </div>
+                    </li>                
+                    <li class="desktop__list-item">
+                        <div class="app-desc" title="Double click this app to open it." ondblclick="">
+                            <i class="fas fa-image icon-desktop"></i>
+                            <a class="app-title"> Image Viewer </a>
+                        </div>
+                    </li>                
+                    <li class="desktop__list-item">
+                        <div class="app-desc" title="Double click this app to open it." ondblclick="">
+                            <i class="fas fa-envelope icon-desktop"></i>
+                            <a class="app-title"> Mail </a>
+                        </div>
+                    </li>                
+                    <li class="desktop__list-item">
+                        <div class="app-desc" title="Double click this app to open it." id="button2">
+                            <i class="fas fa-terminal icon-desktop"></i>
+                            <a class="app-title"> Terminal </a>
+                        </div>
+                    </li>
+					<li class="desktop__list-item">
+						<div role="tooltip" class="app-desc" title="Double click this app to open it." id="button1" aria-label="This file is read only." data-microtip-position="top-right">
+							<i class="fas fa-file icon-desktop"></i>
+							<a class="app-title">
+								changelog.txt
+								<i class="fas fa-lock"></i>
+							</a>
+						</div>
+					</li>
+                </ul>
+				<div class="widgets">
+					<div class="widget weather">
+					
+					</div>
+				
+				</div>
+            </div>
+            <!-- End Desktop -->
+
+			<!-- All system windows -->
+			<div class="windowGroup">
+				<!-- Changelog window -->
+				<div id="window1" class="window fade">
+					<div class="system-col">
+						<p class="windowTitle"> changelog.txt <i class="fas fa-lock"></i> </p>
+					</div>
+					<div class="mainWindow">
+						--Version 1.1 beta--
+						<ul>
+							<li> The Operating System works on all screen sizes.</li>
+							<li> Changed generic System buttons .</li>
+							<li> Changed Windows Framework. </li>
+							<li> Changed System Notifications Framework. </li>
+							<li> Added a Terminal (Still a work in progress) </li>
+						</ul>
+					</div>
+                </div>
+                <div id="window2" class="window fade terminal">
+                    <div class="terminal">
+                        <p class="windowTitle"> Terminal <i class="fas fa-terminal"></i> </p>
+                    </div>
+                    <div class="mainWindow terminal-window">
+                        <div class="input-wrapper">
+                            <div class="input-result">
+                                Diamond OS Terminal [version 1.0a] <br>
+                                &copy; 2020-2021 Diamond OS Team <br>
+								Type help and press enter to see all available commands. <br>
+							</div>
+							
+							<div class="terminal-container">
+								<div class="input-display"></div>
+								<input class="input-field" type="text" aria-label="Types your commands here" name="terminal-field" />
+								<div class="cursor"></div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+			<!-- Diamond OS versions -->
+			<div class="os-version-watermark">
+				<p> 
+					Diamond OS v1.1 alpha
+				</p>
+				<p> 
+					To see all the changes in this; and future versions, <br>
+					please see the changelog.txt file.
+				</p>
+			</div>
+        </main>
+		
+		<!-- Diamond OS BSOD -->
+		<div class="system-bsod">
+			<div class="bsod-container">
+				<div class="bsod-icon"></div>
+				<div class="bsod-desc">
+					<p class="bsod-desc__title"></p>
+				</div>
+			</div>
+		</div>
+
+        <!-- Current User view -->
+        <div class="user-view-current">
+            <h3 class="user-view-current__title"> User Description </h3>
+            <img class="user-view-current__image" alt="Current User Image" src="../imagenes/Users/UserAdmin.png">
+            <h4 class="user-view-current__name"> {SYSTEM} </h4>
+            <p class="user-view-current__desc">
+                The Master.
+            </p>
+            <div class="btn-group">
+                <a class="ripple btn" href="../index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                        fill="#FFFFFF" width="24px"
+                        height="24px" class="btn-group-icon">
+                        <g>
+                            <rect fill="none" height="24" width="24"></rect>
+                        </g>
+                        <g>
+                            <path
+                                d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z">
+                            </path>
+                        </g>
+                    </svg>
+                    <span class="btn-text"> Sign Out </span>
+                </a>
+            </div>
+            <div class="close-btn" onclick="userView();">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="32px" height="32px">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <!-- End User View -->
+
+        <!-- Popup -->
+        <div class='popup'>
+            <img class="popup__img" src="../imagenes/Question/2x/baseline_help_white_18dp.png" alt="App Image.">
+            <h4 class='popup__title'> dimnd_os:{APP_NAME} </h4>
+            <p class='popup__p'>
+                This is an app description. Here is where the app gets describe, filler filler filler filler filler filler filler fillerfiller filler filler filler filler fillerfiller filler filler filler filler filler!~. <br> <br>
+
+                <small> App Manufacturer 2020-2069. </small>
+            </p>
+            <div class="close-btn" onclick="aboutApp();">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF" width="32px" height="32px">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                </svg>
+            </div>
+        </div>        
+        <!-- End Popup -->
+		
+		<!-- Notification panel -->
+		<div class="notification-panel">
+			<div class="notification-panel__bg-overlay"></div>
+			<div class="notification-panel__top">
+				<div class="notification-panel__top-nav">
+					<p> Manage Notifications </p>
+					<p onclick="document.querySelector('.notification-panel').classList.remove('show-panel'); document.querySelector('#blur').classList.remove('active');" class="notification-close">
+						Close
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="18px" height="18px">
+							<path d="M0 0h24v24H0z" fill="none"></path>
+							<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+						</svg>
+					</p>
+				</div>
+				<div class="top-user-profile" onclick="document.querySelector('.notification-panel').classList.remove('show-panel'); document.querySelector('#blur').classList.remove('active'); userView();">
+					<img alt="Current User Image" src="../imagenes/Users/UserAdmin.png">
+					<div class="top-user-details">
+						<h4> {SYSTEM} </h4>
+						<p> The Master. </p>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="notification-panel__bottom">
+				<div class="notification-panel__bottom-title">
+					<h3> All App Notifications </h3>
+					<small class="notification-date"> {Date goes here}</small>
+					<small class="clear-notifications" onclick="document.querySelector('.notification-panel__bottom-apps').classList.add('removed-all')"> Clear All Notifications </small>
+				</div>
+				<ul class="notification-panel__bottom-apps">
+					<li class="notification-app none">
+						<div class="notification-app__icon">
+							<i class="fas fa-envelope"></i>
+						</div>
+						<span class="notification-app__title"> Mail </span>
+						<span class="notification-app__time"> 7:25 AM </span>
+						<span class="notification-app__about"> Mail has new messages </span>
+					</li>
+					<li class="notification-app dimnd_os">
+						<div class="notification-app__icon">
+							<i class="far fa-gem"></i>
+						</div>
+						<span class="notification-app__title"> Diamond OS </span>
+						<span class="notification-app__time"> 3:30 PM </span>
+						<span class="notification-app__about"> The are updates pending, the OS will restart your computer in inactive hours </span>
+					</li>
+					<li class="notification-app yellow">
+						<div class="notification-app__icon">
+							<i class="fas fa-shopping-bag"></i>
+						</div>
+						<span class="notification-app__title"> App Store </span>
+						<span class="notification-app__time"> 12:50 PM </span>
+						<span class="notification-app__about"> The App Store is currently updating 3 apps </span>
+					</li>
+					<li class="notification-app green">
+						<div class="notification-app__icon">
+							<i class="fab fa-android"></i>
+						</div>
+						<span class="notification-app__title"> Android Developers </span>
+						<span class="notification-app__time"> 7:46 PM </span>
+						<span class="notification-app__about"> See all the newest of Android 11! </span>
+					</li>
+					<li class="notification-app yellow">
+						<div class="notification-app__icon">
+							<i class="fab fa-amazon"></i>
+						</div>
+						<span class="notification-app__title"> Amazon </span>
+						<span class="notification-app__time"> 4:00 AM </span>
+						<span class="notification-app__about"> Your orders are waiting to be paid. </span>
+					</li>
+					<li class="notification-app red">
+						<div class="notification-app__icon">
+							<i class="fab fa-quora"></i>
+						</div>
+						<span class="notification-app__title"> Quora </span>
+						<span class="notification-app__time"> 9:45 PM </span>
+						<span class="notification-app__about"> If Windows 10 is now 64-bit, why does the System32 directory structure contain so many libraries??... </span>
+                    </li>
+					<li class="notification-app red">
+						<div class="notification-app__icon">
+							<i class="fab fa-quora"></i>
+						</div>
+						<span class="notification-app__title"> Quora </span>
+						<span class="notification-app__time"> 10:35 AM </span>
+						<span class="notification-app__about"> 
+                            Which programming language is used for making Windows 10?. 
+                            Windows 10 is the same (evolved) code base as the code base of... 
+                        </span>
+					</li>
+					<li class="notification-app green hang">
+						<div class="notification-app__icon">
+							<i class="fas fa-users"></i>
+						</div>	
+						<span class="notification-app__title"> Google Meet Meeting </span>
+						<span class="notification-app__time"> 5:30 PM </span>
+						<span class="notification-app__about"> Talking about what movies to watch online. </span>	
+						<img class="notification-app__hang-image" src="https://i.pravatar.cc/20" alt="User Hangout Image">
+						<img class="notification-app__hang-image" src="../imagenes/Users/UserDaniel.png" alt="User Hangout Image">
+						<img class="notification-app__hang-image" src="../imagenes/Users/UserJuan.png" alt="User Hangout Image">
+						<img class="notification-app__hang-image" src="../imagenes/Users/UserAdmin.png" alt="User Hangout Image">
+					</li>
+					<li class="notification-app yellow">
+						<div class="notification-app__icon">
+							<i class="fab fa-microsoft"></i>
+						</div>
+						<span class="notification-app__title"> Microsoft Account Problem </span>
+						<span class="notification-app__time"> 9:48 PM </span>
+						<span class="notification-app__about"> 
+							We need to fix your Microsoft Account (most likely your password changed). Please Click here to fix it.
+						</span>
+					</li>
+                </ul>
+                <h4 class="notification-panel__all-clear">You're all set</h4>
+			</div>
+		</div>
+        
+        <!-- TEMPLATES -->
+        <template id="taskbarMiddleAppsTemplate">
+            <ul class="taskbar__middle-list">
+                <span class="app-link" onclick=" this.classList.toggle('active');">
+                    <i class="fas"></i>
+                </span>
+                <span class="app-link-indicator"></span>
+            </ul>
+        </template>
+        
+        <template id="popup-id">
+            
+        </template>
+
+		<!-- Music App Notifications -->
+		<div id="music-notification" class="hide">
+			<button class="music-notification-close" title="Close Music Notification" onclick="notificationControl(notificationStates.CLOSED);" aria-label="Close Music Notification">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#C0C746" width="18px" height="18px">
+					<path d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+				</svg>
+			</button>
+			<div class="info fill">
+				<div class="service hide">
+				  <i class="fab fa-soundcloud service-icon"></i>
+				  <p class="name"> SoundCloud </p>
+				  <p class="music-details" style="color: #B3BB55;" title="Hide or show Music Controls" onclick="minimizeMusicNotification(true);">
+					• In Return	
+					<i class="fas fa-angle-up icon-option"></i>					
+				  </p>
+				</div>
+				<div class="specifics hide">
+				  <p class="song"> Coconut Flavor</p>
+				  <p class="artist"> Marcos </p>
+				</div>
+				<div class="controls hide">
+					<i class="fas fa-step-backward"></i>
+					<div class="play-btn" onclick="playSong();">
+						<i class="fas fa-play" title="play song"></i>
+					</div>
+					<i class="fas fa-step-forward"></i>
+				</div>
+			</div>
+			<div class="image hide"></div>
+			<div class="music-progress-bg hide">
+				<input type="range" step="1" class="music-bar-duration" value="0" min="0" max="100" oninput="handleMusicBar();" aria-label="Music Duration Slider">
+				<div class="music-duration-section"> 
+					<span class="current-time">0</span>
+					<span class="duration"> 0:0 </span>
+				</div>
+			</div>
+        </div>
+        
+        <!-- SOUNDS -->
+        <audio class="notificationAudios" preload="none">
+            <source src="../Sounds/Notifications/NotificationIn.wav" type="audio/wav">
+            <source src="../Sounds/Notifications/NotificationOut.wav" type="audio/wav">
+        </audio>
+		
+		<audio class="coconut-flavor-music" preload="none">
+			<source src="../Sounds/music/CoconutFlavor.mp3" type="audio/mpeg">
+		</audio>		
+
+        <!-- JS -->
+        <script defer="defer" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- jQuery -->
+        <script defer="defer" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script> <!-- jQuery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+        <script src="../JS/frameworks/notyf.min.js"></script>
+        <script defer="defer" async="async" src="../JS/frameworks/musicPlayer.js"></script>
+        <script defer="defer" async="async" src="../JS/util.js"></script>
+        <script defer="defer" async="async" src="../JS/notyfTypes.js"></script>
+        <script defer="defer" async="async" src="../JS/main.js"></script>
+        <script type="module" src="../JS/terminal.js"></script>
+        <script defer="defer" async="async" src="../JS/frameworks/window-engine.js"></script>
+        <script defer="defer" async="async" src="../JS/googleRipple.js"></script>
+        <script defer="defer" type="text/javascript">
+            //background variables
+            var _BG = document.documentElement;
+            var _virtualButton = document.querySelector('.desktop-view-button');
+            let desktop_amount = 1;
+			const marker = document.querySelector('#virtual-desktop-marker');
+			const desktops = document.querySelectorAll('.virtual-desktop-view .desktop-view-amount .desktop-view');
+            const backgroundImages = [
+			  'https://w.wallhaven.cc/full/yj/wallhaven-yjw6pk.jpg',
+			  'https://w.wallhaven.cc/full/4o/wallhaven-4oox87.jpg',
+			  'https://w.wallhaven.cc/full/mp/wallhaven-mpr3v9.jpg',
+              'https://w.wallhaven.cc/full/dg/wallhaven-dg7y23.jpg',
+              'https://w.wallhaven.cc/full/13/wallhaven-13dz79.jpg',
+              'https://w.wallhaven.cc/full/mp/wallhaven-mp8wr1.jpg',
+              'https://w.wallhaven.cc/full/43/wallhaven-43eyvy.jpg',
+              'https://w.wallhaven.cc/full/4v/wallhaven-4v6wp8.jpg',
+              'https://w.wallhaven.cc/full/49/wallhaven-49ye9x.jpg',
+              'https://w.wallhaven.cc/full/6q/wallhaven-6q57dq.jpg',
+              'https://w.wallhaven.cc/full/nm/wallhaven-nmg3j1.jpg',
+              'https://w.wallhaven.cc/full/4g/wallhaven-4gll2d.jpg',
+              'https://w.wallhaven.cc/full/0w/wallhaven-0wv7kq.jpg',
+              'https://w.wallhaven.cc/full/wy/wallhaven-wy963r.jpg',
+              'https://w.wallhaven.cc/full/r2/wallhaven-r285lw.jpg',
+              'https://w.wallhaven.cc/full/nz/wallhaven-nz9g8g.png',
+              'https://static.pexels.com/photos/220201/pexels-photo-220201.jpeg'
+            ];
+			
+			function changeBG(_BG_input) 
+			{
+				document.querySelector(".main--image").style.backgroundImage = "url(" + _BG_input + ")";
+			}
+			
+            function createVirtualDesktop()
+            {
+                desktop_amount++;
+                //Get the elements
+                var _virtualDesktopElement = document.createElement('div');
+                var _virtualDesktopButton = document.createElement('button');
+                var _virtualDesktopButton_close = document.createElement('button');
+				var _virtualDesktopButton_close_pulse = document.createElement('div');
+				var _virtualDesktopButton_close_pulse_circle = document.createElement('div');
+                var _virtualDesktopInput = document.createElement('input');
+                var _virtualDesktopImage = document.createElement('img');
+                var _virtualDesktopClose_btn = document.createElement('img');
+				var _input_container = document.createElement('div');
+				var _input_label = document.createElement('label');
+
+                //Add classes to those elements
+                _virtualDesktopElement.classList.add('desktop-view');
+                _virtualDesktopElement.classList.add('added');
+                _virtualDesktopButton.classList.add('desktop-view-button');
+                _virtualDesktopButton.setAttribute("aria-label", "Enter This Virtual Desktop");
+				_virtualDesktopButton.setAttribute("onclick", "changeBG(document.querySelector(`.virtual-desktop-image[src$='.jpg']`).getAttribute('src'));");
+                _virtualDesktopButton_close.classList.add('desktop-view-button-close');
+                _virtualDesktopButton_close.classList.add('remove');
+				_virtualDesktopButton_close.setAttribute("onclick", "removeThisVirtualDesktop(); updateVirtualDesktopAmount();");
+				_virtualDesktopButton_close.setAttribute("aria-label", "Remove This Virtual Desktop");
+				_virtualDesktopButton_close_pulse.classList.add('pulse');
+				_virtualDesktopButton_close_pulse_circle.classList.add('circle');
+				_input_container.classList.add('input-container');
+				_input_label.classList.add('desktop-view__label');
+				_input_container.setAttribute("style", "position: relative");
+
+                //Button and input classes
+                _virtualDesktopInput.classList.add('virtual-desktop-title');
+                _virtualDesktopInput.type = "text";
+                _virtualDesktopInput.name = "desktop-title";
+                _virtualDesktopInput.placeholder = " ";
+                _input_label.innerHTML = "Desktop " + desktop_amount;
+				_input_label.for = "desktop-title";
+
+                //Image classes
+                _virtualDesktopImage.classList.add('virtual-desktop-image');
+                _virtualDesktopImage.src = randomItem(backgroundImages);
+				changeBG(_virtualDesktopImage.src);
+                _virtualDesktopImage.alt = "Virtual Desktop View Image";
+				_virtualDesktopClose_btn.src = "../imagenes/close.PNG";
+
+                //Append the elements to the respected DIV
+                document.querySelector('.desktop-view-amount').appendChild(_virtualDesktopElement);
+                _virtualDesktopElement.appendChild(_virtualDesktopButton);
+				_virtualDesktopButton.appendChild(_input_container);
+				_input_container.appendChild(_virtualDesktopInput);
+				_input_container.appendChild(_input_label);
+                _virtualDesktopButton.appendChild(_virtualDesktopButton_close);
+                _virtualDesktopButton_close.appendChild(_virtualDesktopButton_close_pulse);
+                _virtualDesktopButton_close_pulse.appendChild(_virtualDesktopButton_close_pulse_circle);
+                _virtualDesktopButton_close.appendChild(_virtualDesktopClose_btn);
+                _virtualDesktopButton.appendChild(_virtualDesktopImage);
+
+
+                //Too many virtual desktops will make the "add" button go away
+                var _virtualDesktopAmount = document.querySelector('.desktop-view-amount').childElementCount;
+                if (_virtualDesktopAmount >= 5)
+                {
+                    document.querySelector('.virtual-desktop-add').classList.add('hide');
+                }
+                else
+                {
+                    document.querySelector('.virtual-desktop-add').classList.remove('hide');
+                }
+				
+				//If there's only 1 virtual desktop, remove the X 
+                if (_virtualDesktopAmount <= 1)
+                {
+                    document.querySelector('.desktop-view-button-close').style.visibility = "hidden";
+                }
+                else
+                {
+                    document.querySelector('.desktop-view-button-close').style.visibility = "visible";
+                }
+            }
+			
+			function updateVirtualDesktopAmount()
+			{
+                var _virtualDesktopAmount = document.querySelector('.desktop-view-amount').childElementCount;
+                if (_virtualDesktopAmount >= 5)
+                {
+                    document.querySelector('.virtual-desktop-add').classList.add('hide');
+                }
+                else
+                {
+                    document.querySelector('.virtual-desktop-add').classList.remove('hide');
+                }
+				
+				if (_virtualDesktopAmount <= 1)
+                {
+                    document.querySelector('.desktop-view-button-close').style.visibility = "hidden";
+                }
+                else
+                {
+                    document.querySelector('.desktop-view-button-close').style.visibility = "visible";
+                }
+				desktop_amount--;
+			}
+			
+			function removeThisVirtualDesktop()
+			{
+				var _desktop_view_amount = document.querySelector('.desktop-view-amount');
+				if (_desktop_view_amount.hasChildNodes())
+				{
+					var toBeRemoved = _desktop_view_amount.lastChild;
+					removeChild(_desktop_view_amount, toBeRemoved);
+				}
+			}
+        </script>
+        <noscript>
+            This Operating System requires JavaScript to work.
+        </noscript>
+    </body>
+</html>

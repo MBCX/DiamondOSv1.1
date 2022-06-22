@@ -1,0 +1,19 @@
+cubic-bezier(0, 0.01, 0.5, 1); //Linear in, smooth end.
+cubic-bezier(0.55, 0, 0.1, 1); //Slow in, smooth end.
+cubic-bezier(0.5, 0.01, 0.5, 1); //Constant in, constant end. 
+cubic-bezier(0.29, 0.02, 0.1, 1); //Fast out, smooth in.
+cubic-bezier(0.694, 0.0482, 0.335, 1); //Slow out, Fast in.
+cubic-bezier(0.645, 0.045, 0.355, 1.000); //Ease in out cubic
+cubic-bezier(0.785, 0.135, 0.15, 0.86); //Ease in out circ
+cubic-bezier(0, 0.62, 0.04, 0.99); //Fast in, smooth end
+cubic-bezier(0.68, 1, 0.265, 1); //linear in, linear end
+cubic-bezier(0.13, 1.07, 0.5, 1.01); //Very fast in, smooth end
+cubic-bezier(0.000, 0.795, 0.000, 1.000); //Even faster in, slow end
+cubic-bezier(0.215, 0.61, 0.355, 1); //Bounce in, slower end
+cubic-bezier(0.8, 0.4, 0.3, 1.25); //Slow in, bounce end
+cubic-bezier(0.35, 0.9, 0.4, 0.9); //Smooth in, slow end.
+cubic-bezier(0.25, 0.8, 0.25, 1); //Smooth in, slow end (version 2).
+cubic-bezier(0.2, 0.6, 0.252, 1.2); //Bounce in, bounce end
+cubic-bezier(0.25, 0.1, 0.25, 1); //Ease, cubic edition
+cubic-bezier(0.05, 0, 0, 1); //Fast in, slow end
+

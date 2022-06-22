@@ -1,0 +1,45 @@
+body {
+	background-image: url("https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+	background-size: cover;
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	line-height: 1.5;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	background-color: rebeccapurple;
+	width: 100%;
+	height: 48px;
+	padding: 4px;
+	box-shadow: 0 2px 2px 1px black;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	background-color: rebeccapurple;
+	width: 100%;
+	height: 20px;
+	opacity: 0.5;
+	padding: 4px;
+	color: white;
+	font-size: 12px;
+}
+
+p {
+	cursor: default;
+	margin-top: 0;
+}
+
+[id^="button"] {
+	margin-left: 20px;
+	color: white;
+	cursor: pointer;
+	font-size: 30px;
+	position: relative;
+	bottom: 2px;
+}

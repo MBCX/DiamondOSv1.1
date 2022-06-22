@@ -1,0 +1,8 @@
+.close-btn colors
+	1. #398CC6
+	2. #C21624
+	3. #7233A6
+.menubar colors
+	1. #323639
+	2. #2A373A
+	3. #3A2A2A

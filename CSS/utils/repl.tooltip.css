@@ -1,0 +1,268 @@
+[aria-label][role~="tooltip"] {
+	/* position: absolute; */
+	font-family: inherit;
+}
+
+[aria-label][role~="tooltip"]::before,
+[aria-label][role~="tooltip"]::after {
+	position: absolute;
+	-webkit-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	will-change: transform, opacity;
+	opacity: 0;
+	pointer-events: none;
+  	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+	z-index: 10;
+	-webkit-transform-origin: top;
+	-ms-transform-origin: top;
+	transform-origin: top;
+	-webkit-transition: transform 180ms cubic-bezier(0.550, 0.085, 0.680, 0.530), opacity 180ms cubic-bezier(0.550, 0.085, 0.680, 0.530);
+	transition: transform 180ms cubic-bezier(0.550, 0.085, 0.680, 0.530), opacity 180ms cubic-bezier(0.550, 0.085, 0.680, 0.530);
+}
+
+[aria-label][role~="tooltip"]::before {
+	content: "";
+	background-size: 100% auto !important;
+}
+
+[aria-label][role~="tooltip"]::after {
+	content: attr(aria-label);
+	background: #FFFFFF;
+	border: 1px solid rgba(33, 36, 44, 0.32);
+	color: #21242C;
+
+  	-webkit-box-shadow: 0px 2px 20px rgba(33, 36, 44, 0.32);
+	box-shadow: 0px 2px 20px rgba(33, 36, 44, 0.32);
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: none;
+	padding: 0.5em 1em;
+	white-space: nowrap;
+  	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+	box-sizing: content-box;
+}
+
+/* Tooltip themes */
+[data-microtip-theme="dark"][aria-label][role~="tooltip"]::after {
+	background: #0D101E;
+	border: 2px solid rgba(255, 255, 255, 0.16);
+	color: #FFFFFF;
+  	-webkit-box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.08);
+	box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.08);
+}
+
+[aria-label][role~="tooltip"]:hover::before,
+[aria-label][role~="tooltip"]:hover::after,
+[aria-label][role~="tooltip"]:focus::before,
+[aria-label][role~="tooltip"]:focus::after {
+	-webkit-transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+	transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/* Tooltip positions */
+[role~="tooltip"][data-microtip-position|="top"]::after {
+	margin-bottom: 8px;
+}
+
+[role~="tooltip"][data-microtip-position|="top"]::before {
+	-webkit-transform: translate3d(-50%, 0, 0);
+	-ms-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+	bottom: 100%;
+	left: 50%;
+}
+
+[role~="tooltip"][data-microtip-position|="top"]:hover::before,
+[role~="tooltip"][data-microtip-position|="top"]:focus::before {
+	-webkit-transform: translate3d(-50%, -5px, 0);
+	-ms-transform: translate3d(-50%, -5px, 0);
+	transform: translate3d(-50%, -5px, 0);
+}
+
+[role~="tooltip"][data-microtip-position|="top"]::after {
+	-webkit-transform: translate3d(-50%, 0, 0);
+	-ms-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+	bottom: 100%;
+	left: 50%;
+}
+
+[role~="tooltip"][data-microtip-position="top"]:hover::after,
+[role~="tooltip"][data-microtip-position="top"]:focus::after {
+	-webkit-transform: translate3d(-50%, -5px, 0);
+	-ms-transform: translate3d(-50%, -5px, 0);
+	transform: translate3d(-50%, -5px, 0);
+}
+
+[role~="tooltip"][data-microtip-position="top-left"]::after {
+	-webkit-transform: translate3d(calc(-100% + 16px), 0, 0);
+	-ms-transform: translate3d(calc(-100% + 16px), 0, 0);
+	transform: translate3d(calc(-100% + 16px), 0, 0);
+	bottom: 100%;
+}
+
+[role~="tooltip"][data-microtip-position="top-left"]:hover::after,
+[role~="tooltip"][data-microtip-position="top-left"]:focus::after {
+	-webkit-transform: translate3d(calc(-100% + 16px), -5px, 0);
+	-ms-transform: translate3d(calc(-100% + 16px), -5px, 0);
+	transform: translate3d(calc(-100% + 16px), -5px, 0);
+}
+
+[role~="tooltip"][data-microtip-position="top-right"]::after {
+	-webkit-transform: translate3d(calc(0% + -16px), 0, 0);
+	-ms-transform: translate3d(calc(0% + -16px), 0, 0);
+	transform: translate3d(calc(0% + -16px), 0, 0);
+	bottom: 100%;
+}
+
+[role~="tooltip"][data-microtip-position="top-right"]:hover::after,
+[role~="tooltip"][data-microtip-position="top-right"]:focus::after {
+	-webkit-transform: translate3d(calc(0% + -16px), -5px, 0);
+	-ms-transform: translate3d(calc(0% + -16px), -5px, 0);
+	transform: translate3d(calc(0% + -16px), -5px, 0);
+}
+
+[role~="tooltip"][data-microtip-position|="bottom"]::after {
+	margin-top: 8px;
+}
+
+[role~="tooltip"][data-microtip-position|="bottom"]::before {
+	-webkit-transform: translate3d(-50%, -10px, 0);
+	-ms-transform: translate3d(-50%, -10px, 0);
+	transform: translate3d(-50%, -10px, 0);
+	bottom: auto;
+	left: 50%;
+	top: 100%;
+}
+
+[role~="tooltip"][data-microtip-position|="bottom"]:hover::before,
+[role~="tooltip"][data-microtip-position|="bottom"]:focus::before {
+	-webkit-transform: translate3d(-50%, 0, 0);
+	-ms-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+}
+
+[role~="tooltip"][data-microtip-position|="bottom"]::after {
+	-webkit-transform: translate3d(-50%, -10px, 0);
+	-ms-transform: translate3d(-50%, -10px, 0);
+	transform: translate3d(-50%, -10px, 0);
+	top: 100%;
+	left: 50%;
+}
+
+[role~="tooltip"][data-microtip-position="bottom"]:hover::after,
+[role~="tooltip"][data-microtip-position="bottom"]:focus::after {
+	-webkit-transform: translate3d(-50%, 0, 0);
+	-ms-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+}
+
+[role~="tooltip"][data-microtip-position="bottom-left"]::after {
+	-webkit-transform: translate3d(calc(-100% + 16px), -10px, 0);
+	-ms-transform: translate3d(calc(-100% + 16px), -10px, 0);
+	transform: translate3d(calc(-100% + 16px), -10px, 0);
+	top: 100%;
+}
+
+[role~="tooltip"][data-microtip-position="bottom-left"]:hover::after,
+[role~="tooltip"][data-microtip-position="bottom-left"]:focus::after {
+	-webkit-transform: translate3d(calc(-100% + 16px), 0, 0);
+	-ms-transform: translate3d(calc(-100% + 16px), 0, 0);
+	transform: translate3d(calc(-100% + 16px), 0, 0);
+}
+
+[role~="tooltip"][data-microtip-position="bottom-right"]::after {
+	-webkit-transform: translate3d(calc(0% + -16px), -10px, 0);
+	-ms-transform: translate3d(calc(0% + -16px), -10px, 0);
+	transform: translate3d(calc(0% + -16px), -10px, 0);
+	top: 100%;
+}
+
+[role~="tooltip"][data-microtip-position="bottom-right"]:hover::after,
+[role~="tooltip"][data-microtip-position="bottom-right"]:focus::after {
+	-webkit-transform: translate3d(calc(0% + -16px), 0, 0);
+	-ms-transform: translate3d(calc(0% + -16px), 0, 0);
+	transform: translate3d(calc(0% + -16px), 0, 0);
+}
+
+[role~="tooltip"][data-microtip-position="left"]::before,
+[role~="tooltip"][data-microtip-position="left"]::after {
+	bottom: auto;
+	left: auto;
+	right: 100%;
+	top: 50%;
+	-webkit-transform: translate3d(10px, -50%, 0);
+	-ms-transform: translate3d(10px, -50%, 0);
+	transform: translate3d(10px, -50%, 0);
+}
+
+[role~="tooltip"][data-microtip-position="left"]::after {
+	margin-right: 8px;
+}
+
+[role~="tooltip"][data-microtip-position="left"]:hover::before,
+[role~="tooltip"][data-microtip-position="left"]:hover::after,
+[role~="tooltip"][data-microtip-position="left"]:focus::before,
+[role~="tooltip"][data-microtip-position="left"]:focus::after {
+	-webkit-transform: translate3d(0, -50%, 0);
+	-ms-transform: translate3d(0, -50%, 0);
+	transform: translate3d(0, -50%, 0);
+}
+
+[role~="tooltip"][data-microtip-position="right"]::before,
+[role~="tooltip"][data-microtip-position="right"]::after {
+	bottom: auto;
+	left: 100%;
+	top: 50%;
+	-webkit-transform: translate3d(-10px, -50%, 0);
+	-ms-transform: translate3d(-10px, -50%, 0);
+	transform: translate3d(-10px, -50%, 0);
+}
+
+[role~="tooltip"][data-microtip-position="right"]::after {
+	margin-left: 8px;
+}
+
+[role~="tooltip"][data-microtip-position="right"]:hover::before,
+[role~="tooltip"][data-microtip-position="right"]:hover::after,
+[role~="tooltip"][data-microtip-position="right"]:focus::before,
+[role~="tooltip"][data-microtip-position="right"]:focus::after {
+	-webkit-transform: translate3d(0, -50%, 0);
+	-ms-transform: translate3d(0, -50%, 0);
+	transform: translate3d(0, -50%, 0);
+}
+
+/* Tooltip sizes */
+[role~="tooltip"][data-microtip-size="very-small"]::after {
+	white-space: initial;
+	width: 50px;
+}
+
+[role~="tooltip"][data-microtip-size="small"]::after {
+	white-space: initial;
+	width: 80px;
+}
+
+[role~="tooltip"][data-microtip-size="medium"]::after {
+	white-space: initial;
+	width: 150px;
+}
+
+[role~="tooltip"][data-microtip-size="large"]::after {
+	white-space: initial;
+	width: 260px;
+} 
+
+[role~="tooltip"][data-microtip-size="very-large"]::after {
+	white-space: initial;
+	width: 320px;
+}
